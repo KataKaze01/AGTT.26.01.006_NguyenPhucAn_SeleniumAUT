@@ -1,4 +1,4 @@
-package ex3;
+package ErrorHandling;
 
 import java.util.Scanner;
 

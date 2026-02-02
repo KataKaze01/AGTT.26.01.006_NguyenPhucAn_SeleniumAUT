@@ -1,8 +1,8 @@
-package ex1;
+package VariableDicisionLoop;
 
 import java.util.Scanner;
 
-public class inversePositiveNumber {
+public class InversePositiveNumber {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

@@ -1,4 +1,4 @@
-package ex2;
+package ArrayList;
 
 import java.util.Scanner;
 
