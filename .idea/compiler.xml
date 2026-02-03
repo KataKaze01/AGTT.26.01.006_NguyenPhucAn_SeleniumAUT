@@ -6,8 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="AGTT.26.01.006" />
-        <module name="AGTT.26.01.006_NguyenPhucAn" />
+        <module name="SeleniumLv1" />
       </profile>
     </annotationProcessing>
   </component>
