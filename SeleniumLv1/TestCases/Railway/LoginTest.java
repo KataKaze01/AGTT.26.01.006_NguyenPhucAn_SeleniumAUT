@@ -68,7 +68,7 @@
             loginPage.login(Constant.USERNAME, invalidPassword);
 
             String actualMsg = loginPage.getLblLoginErrorMsg().getText();
-            String expectedMsg = "There was a problem with your login and/or errors exist in your form.";
+            String expectedMsg = "There was a problem with your login and/or errors exist in your form. ";
 
             Assert.assertEquals(actualMsg, expectedMsg);
         }
