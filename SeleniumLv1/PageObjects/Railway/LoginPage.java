@@ -1,6 +1,7 @@
 package Railway;
 
 import Constant.Constant;
+import DataObjects_Railway.UserAccount;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -26,6 +27,15 @@ public class LoginPage extends GeneralPage{
     public HomePage login(String username, String password){
         getTxtUsername().sendKeys(username);
         getTxtPassword().sendKeys(password);
+        getBtnLogin().click();
+
+
+        return new HomePage();
+    }
+
+    public HomePage login(UserAccount userAccount){
+        getTxtUsername().sendKeys(userAccount.getUsernameAccount());
+        getTxtPassword().sendKeys(userAccount.getPasswordAccount());
         getBtnLogin().click();
 
 
