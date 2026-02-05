@@ -22,6 +22,7 @@
             System.out.println("3. Enter valid Email and Password");
             System.out.println("4. Click on Login button");
             homePage = loginPage.login(userAccount);
+
             String actualMsg =  homePage.getWelcomeMessage();
             String expectedMsg = "Welcome " + Constant.USERNAME;
 
@@ -31,6 +32,7 @@
         @Test
         public void TC02(){
             System.out.println("TC02 - User cannot login with blank 'Username' textbox");
+
             System.out.println("1. Navigate to QA Railway Website");
             HomePage homePage = new HomePage();
             UserAccount userAccount = new UserAccount("", Constant.PASSWORD, "");
@@ -42,6 +44,8 @@
             System.out.println("3. User doesn't type any words into 'Username' textbox but enter valid information into 'Password' textbox");
             System.out.println("4. Click on Login button");
             loginPage.login(userAccount);
+
+            System.out.println("User can't login and message \"There was a problem with your login and/or errors exist in your form. \" appears.");
             String actualMsg = loginPage.getErrorMessage();
             String expectedMsg = "There was a problem with your login and/or errors exist in your form.";
 
@@ -51,6 +55,7 @@
         @Test
         public void TC03(){
             System.out.println("TC03 - User cannot log into Railway with invalid password");
+
             System.out.println("1. Navigate to QA Railway Website");
             HomePage homePage = new HomePage();
             homePage.open();
@@ -64,6 +69,7 @@
             UserAccount userAccount = new UserAccount(Constant.USERNAME, invalidPassword, "");
             loginPage.login(userAccount);
 
+            System.out.println("Error message \"There was a problem with your login and/or errors exist in your form.\" is displayed");
             String actualMsg = loginPage.getLblLoginErrorMsg().getText();
             String expectedMsg = "There was a problem with your login and/or errors exist in your form. ";
 
@@ -73,6 +79,7 @@
         @Test
         public void TC04(){
             System.out.println("TC04 - System shows message when user enters wrong password many times");
+
             System.out.println("1. Navigate to QA Railway Website");
             HomePage homePage = new HomePage();
             homePage.open();
@@ -84,6 +91,7 @@
             System.out.println("3. Enter valid information into \"Username\" textbox except \"Password\" textbox.");
             System.out.println("4. Click on \"Login\" button");
             System.out.println("5. Repeat step 3 and 4 three more times.");
+            System.out.println("\"Invalid username or password. Please try again\" is shown");
             for (int i = 1; i < 4; i++){
                 System.out.println("Login attempt: " + i);
 
@@ -95,6 +103,7 @@
                 loginPage.getBtnLogin().click();
             }
 
+            System.out.println("User can't login and message \"You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.\" appears.");
             String actualMsg = loginPage.getLblLoginErrorMsg().getText();
             String expectedMsg = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
 
@@ -117,34 +126,11 @@
             UserAccount userAccount = new UserAccount("accclone1223@spam4.me", "12345678", "");
             loginPage.login(userAccount);
 
+            System.out.println("User can't login and message \"Invalid username or password. Please try again.\" appears.");
             String actualMsg = loginPage.getLblLoginErrorMsg().getText();
             String expectedMsg = "Invalid username or password. Please try again.";
 
             Assert.assertEquals(actualMsg, expectedMsg);
         }
 
-        @Test
-        public void TC06(){
-            System.out.println("TC06 - User is redirected to Home page after logging out");
-            System.out.println("1. Navigate to QA Railway Website");
-            HomePage homePage = new HomePage();
-            homePage.open();
-
-            System.out.println("2. Login with valid Email and Password");
-            LoginPage loginPage = homePage.gotoLoginPage();
-            UserAccount userAccount = new UserAccount(Constant.USERNAME, Constant.PASSWORD, "");
-            loginPage.login(userAccount);
-
-            FAQPage faqPage = homePage.gotoFAQPage();
-
-            homePage = faqPage.logout();
-
-        }
-
-        @Test
-        public void TC07(){
-            System.out.println("TC07 - User can't create account with an already in-use email");
-
-
-        }
     }
