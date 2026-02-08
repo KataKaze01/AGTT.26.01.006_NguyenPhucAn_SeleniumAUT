@@ -1,7 +1,6 @@
 package Railway;
 
 import Common.Utilities;
-import Constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -16,28 +15,24 @@ public class GeneralPage {
     private final By tabFAQ = By.xpath("//div[@id='menu']//a[@href='/Page/FAQ.cshtml']");
 
     //Elements
-    protected WebElement getTablogin(){
-        Utilities.waitForClickable(tabLogin);
-        return Constant.WEBDRIVER.findElement(tabLogin);
+    protected WebElement getTabLogin(){
+        return Utilities.waitForVisible(tabLogin);
     }
     protected WebElement getTabRegister(){
-        Utilities.waitForClickable(tabRegister);
-        return Constant.WEBDRIVER.findElement(tabRegister);
+        return Utilities.waitForVisible(tabRegister);
     }
-    protected WebElement getTablogout(){
-        Utilities.waitForClickable(tabLogout);
-        return Constant.WEBDRIVER.findElement(tabLogout);
+    protected WebElement getTabLogout(){
+        return Utilities.waitForVisible(tabLogout);
     }
     protected WebElement getLblWelcomeMessage(){
-        Utilities.waitForClickable(lblWelcomeMessage);
-        return Constant.WEBDRIVER.findElement(lblWelcomeMessage);
+        return Utilities.waitForVisible(lblWelcomeMessage);
     }
     protected WebElement getLblErrorMessage(){
-        Utilities.waitForClickable(lblErrorMessage);
-        return Constant.WEBDRIVER.findElement(lblErrorMessage);}
+        return Utilities.waitForVisible(lblErrorMessage);
+    }
     protected WebElement getTabFAQ(){
-        Utilities.waitForClickable(tabFAQ);
-        return Constant.WEBDRIVER.findElement((tabFAQ));}
+        return Utilities.waitForVisible(tabFAQ);
+    }
 
     // Methods
     public String getWelcomeMessage(){
@@ -49,7 +44,7 @@ public class GeneralPage {
     }
 
     public LoginPage gotoLoginPage(){
-        this.getTablogin().click();
+        this.getTabLogin().click();
         return new LoginPage();
     }
 
@@ -59,7 +54,7 @@ public class GeneralPage {
     }
 
     public HomePage logout(){
-        getTablogout().click();
+        getTabLogout().click();
         return new HomePage();
     }
 

@@ -18,6 +18,7 @@ public class RegisterPage extends GeneralPage {
     private final By _lblPìdErrorMsg = By.xpath("//input[@id='pid']/following-sibling::label[contains(@class,'validation-error')]");
     private final By lblRegistrationConfirmedMsg = By.xpath("//div[@id='content']/p");
 
+    //elements
     public WebElement getTxtEmail(){
         return Utilities.waitForVisible(_txtEmail);
     }
@@ -35,25 +36,26 @@ public class RegisterPage extends GeneralPage {
     }
 
     public WebElement getBtnRegister(){
-        return Utilities.waitForVisible(_btnRegister);
+        Utilities.waitForClickable(_btnRegister);
+        return Constant.WEBDRIVER.findElement(_btnRegister);
     }
 
-    protected WebElement getLblRegisterErrorMsg(){
+    public WebElement getLblRegisterErrorMsg(){
         return Utilities.waitForVisible(_lblRegisterErrorMsg);
     }
 
-    protected WebElement getLblPasswordErrorMsg(){
+    public WebElement getLblPasswordErrorMsg(){
         return Utilities.waitForVisible(_lblPasswordErrorMsg);
     }
 
-    protected WebElement getLblSuccessMsg(){
+    public WebElement getLblSuccessMsg(){
         return Utilities.waitForVisible(_lblRegisterSuccessMsg);
     }
 
-    protected WebElement getLblPidErrorMsg(){
+    public WebElement getLblPidErrorMsg(){
         return Utilities.waitForVisible(_lblPìdErrorMsg);
     }
-    protected WebElement getLblRegistrationConfirmedMsg(){
+    public WebElement getLblRegistrationConfirmedMsg(){
         return Utilities.waitForVisible(lblRegistrationConfirmedMsg);
     }
 

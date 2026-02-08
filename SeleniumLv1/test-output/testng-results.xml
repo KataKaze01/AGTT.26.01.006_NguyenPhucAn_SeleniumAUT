@@ -1,116 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-06T16:00:24 ICT" name="Default suite" finished-at="2026-02-06T16:00:49 ICT" duration-ms="24422">
+  <suite started-at="2026-02-08T15:49:23 ICT" name="Default suite" finished-at="2026-02-08T15:49:59 ICT" duration-ms="35863">
     <groups>
     </groups>
-    <test started-at="2026-02-06T16:00:24 ICT" name="Default test" finished-at="2026-02-06T16:00:49 ICT" duration-ms="24422">
+    <test started-at="2026-02-08T15:49:23 ICT" name="Default test" finished-at="2026-02-08T15:49:59 ICT" duration-ms="35863">
       <class name="Railway.CreateAccountTest">
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.CreateAccountTest@5bda8e08]" started-at="2026-02-06T16:00:24 ICT" name="beforeMethod" finished-at="2026-02-06T16:00:26 ICT" duration-ms="1336" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.CreateAccountTest@233795b6]" started-at="2026-02-08T15:49:23 ICT" name="beforeMethod" finished-at="2026-02-08T15:49:25 ICT" duration-ms="1430" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC07()[pri:0, instance:Railway.CreateAccountTest@5bda8e08]" started-at="2026-02-06T16:00:26 ICT" name="TC07" finished-at="2026-02-06T16:00:33 ICT" duration-ms="7688" status="PASS">
+        <test-method signature="TC07()[pri:0, instance:Railway.CreateAccountTest@233795b6]" started-at="2026-02-08T15:49:25 ICT" name="TC07" finished-at="2026-02-08T15:49:29 ICT" duration-ms="4506" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC07 -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.CreateAccountTest@5bda8e08]" started-at="2026-02-06T16:00:33 ICT" name="afterMethod" finished-at="2026-02-06T16:00:34 ICT" duration-ms="163" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.CreateAccountTest@233795b6]" started-at="2026-02-08T15:49:29 ICT" name="afterMethod" finished-at="2026-02-08T15:49:29 ICT" duration-ms="149" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.CreateAccountTest@5bda8e08]" started-at="2026-02-06T16:00:34 ICT" name="beforeMethod" finished-at="2026-02-06T16:00:34 ICT" duration-ms="863" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.CreateAccountTest@233795b6]" started-at="2026-02-08T15:49:29 ICT" name="beforeMethod" finished-at="2026-02-08T15:49:30 ICT" duration-ms="854" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC08()[pri:0, instance:Railway.CreateAccountTest@5bda8e08]" started-at="2026-02-06T16:00:34 ICT" name="TC08" finished-at="2026-02-06T16:00:39 ICT" duration-ms="4997" status="PASS">
+        <test-method signature="TC08()[pri:0, instance:Railway.CreateAccountTest@233795b6]" started-at="2026-02-08T15:49:30 ICT" name="TC08" finished-at="2026-02-08T15:49:34 ICT" duration-ms="3625" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC08 -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.CreateAccountTest@5bda8e08]" started-at="2026-02-06T16:00:39 ICT" name="afterMethod" finished-at="2026-02-06T16:00:40 ICT" duration-ms="141" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.CreateAccountTest@233795b6]" started-at="2026-02-08T15:49:34 ICT" name="afterMethod" finished-at="2026-02-08T15:49:34 ICT" duration-ms="159" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.CreateAccountTest@5bda8e08]" started-at="2026-02-06T16:00:40 ICT" name="beforeMethod" finished-at="2026-02-06T16:00:40 ICT" duration-ms="792" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.CreateAccountTest@233795b6]" started-at="2026-02-08T15:49:34 ICT" name="beforeMethod" finished-at="2026-02-08T15:49:35 ICT" duration-ms="791" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC09()[pri:0, instance:Railway.CreateAccountTest@5bda8e08]" started-at="2026-02-06T16:00:40 ICT" name="TC09" finished-at="2026-02-06T16:00:49 ICT" duration-ms="8346" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchSessionException">
-            <message>
-              <![CDATA[invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=144.0.7559.132)
-Build info: version: '4.40.0', revision: 'b3333f1'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [1540770627b4315e424e644f931fcf2e, findElement {value=//div[@id='content']/h1, using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.132, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60308}, goog:processID: 29700, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60308/devtoo..., se:cdpVersion: 144.0.7559.132, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 1540770627b4315e424e644f931fcf2e]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=144.0.7559.132)
-Build info: version: '4.40.0', revision: 'b3333f1'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [1540770627b4315e424e644f931fcf2e, findElement {value=//div[@id='content']/h1, using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.132, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60308}, goog:processID: 29700, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60308/devtoo..., se:cdpVersion: 144.0.7559.132, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 1540770627b4315e424e644f931fcf2e
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:424)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:418)
-at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:224)
-at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:217)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:207)
-at Common.Utilities.waitForVisible(Utilities.java:73)
-at Common.Utilities.waitForVisible(Utilities.java:78)
-at Railway.RegisterPage.getLblSuccessMsg(RegisterPage.java:56)
-at Railway.CreateAccountTest.TC09(CreateAccountTest.java:85)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:741)
-at org.testng.TestRunner.run(TestRunner.java:616)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+        <test-method signature="TC09()[pri:0, instance:Railway.CreateAccountTest@233795b6]" started-at="2026-02-08T15:49:35 ICT" name="TC09" finished-at="2026-02-08T15:49:59 ICT" duration-ms="24107" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC09 -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.CreateAccountTest@5bda8e08]" started-at="2026-02-06T16:00:49 ICT" name="afterMethod" finished-at="2026-02-06T16:00:49 ICT" duration-ms="57" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.CreateAccountTest@233795b6]" started-at="2026-02-08T15:49:59 ICT" name="afterMethod" finished-at="2026-02-08T15:49:59 ICT" duration-ms="201" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->

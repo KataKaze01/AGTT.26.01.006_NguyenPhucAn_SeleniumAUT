@@ -8,43 +8,42 @@ import org.openqa.selenium.WebElement;
 
 public class MailPage extends GeneralPage {
 
+    //Locators
     private final By btnClickToEdit = By.xpath("//span[@id='inbox-id']");
     private final By txtText = By.xpath("//span[@id='inbox-id']//input[@type='text']");
     private final By btnSet = By.xpath("//button[@class='save button small']");
-    private final By cbbScrambleAddress = By.xpath("//span[@id='alias-box']/input");
-    private final By confirmEmail = By.xpath("//td[contains(., 'confirm')]");
+    private final By confirmEmail = By.xpath("//td[contains(., 'thanhletraining03@gmail.com')]");
     private final By confirmLinkAccount = By.xpath("//div[@class='email_body']//a[contains(@href, 'Account/Confirm')]");
+    private final By confirmLinkResetPassword = By.xpath("//div[@class='email_body']//a[contains(@href, 'Account/PasswordReset')]");
 
+    //Elements
     public WebElement getBtnClickToEdit(){
-        Utilities.waitForVisible(btnClickToEdit);
+        Utilities.waitForClickable(btnClickToEdit);
         return Constant.WEBDRIVER.findElement(btnClickToEdit);
     }
 
     public WebElement getTxtText(){
-        Utilities.waitForVisible(txtText);
-        return Constant.WEBDRIVER.findElement(txtText);
+        return Utilities.waitForVisible(txtText);
     }
 
     public WebElement getBtnSet(){
-        Utilities.waitForVisible(btnSet);
+        Utilities.waitForClickable(btnSet);
         return Constant.WEBDRIVER.findElement(btnSet);
     }
 
-    public WebElement getCbbScrambleAddress(){
-        Utilities.waitForVisible(cbbScrambleAddress);
-        return Constant.WEBDRIVER.findElement(cbbScrambleAddress);
-    }
-
     public WebElement getConfirmEmail(){
-        Utilities.waitForVisible(confirmEmail);
-        return Constant.WEBDRIVER.findElement(confirmEmail);
+        return Utilities.waitForVisible(confirmEmail);
     }
 
     public WebElement getConfirmLinkAccount(){
-//        Utilities.waitForVisible(confirmLinkAccount);
         return Constant.WEBDRIVER.findElement(confirmLinkAccount);
     }
 
+    public WebElement getConfirmLinkResetPassword(){
+        return Utilities.waitForVisible(confirmLinkResetPassword);
+    }
+
+    //Methods
     public MailPage open(){
         Constant.WEBDRIVER.navigate().to(Constant.GUERILLAMAIL_URL);
         return this;
@@ -56,13 +55,22 @@ public class MailPage extends GeneralPage {
         getTxtText().clear();
         getTxtText().sendKeys(username);
         getBtnSet().click();
-//        getConfirmEmail().click();
         Utilities.waitForVisible(confirmEmail).click();
-//        getConfirmLinkAccount().click();
         Utilities.waitForVisible(confirmLinkAccount).click();
-
         Utilities.switchToLatestWindow();
 
         return new RegisterPage();
+    }
+
+    public ResetPasswordPage confirmResetPassword(UserAccount userAccount){
+        getBtnClickToEdit().click();
+        getTxtText().clear();
+        getTxtText().sendKeys(userAccount.getUsernameAccount());
+        getBtnSet().click();
+        Utilities.waitForVisible(confirmEmail).click();
+        Utilities.waitForVisible(confirmLinkResetPassword).click();
+        Utilities.switchToLatestWindow();
+
+        return new ResetPasswordPage();
     }
 }
