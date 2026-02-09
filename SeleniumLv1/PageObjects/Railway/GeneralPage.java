@@ -10,6 +10,7 @@ public class GeneralPage {
     private final By tabLogin = By.xpath("//div[@id='menu']//a[@href='/Account/Login.cshtml']");
     private final By tabRegister = By.xpath("//div[@id='menu']//a[@href='/Account/Register.cshtml']");
     private final By tabLogout = By.xpath("//div[@id='menu']//a[@href='/Account/Logout']");
+    private final By tabBookTicket = By.xpath("//div[@id='menu']//a[@href='/Page/BookTicketPage.cshtml']");
     private final By lblWelcomeMessage = By.xpath("//div[@class='account']/strong");
     private final By lblErrorMessage = By.xpath("//p[contains(@class,'message') and contains(@class,'error')]");
     private final By tabFAQ = By.xpath("//div[@id='menu']//a[@href='/Page/FAQ.cshtml']");
@@ -23,6 +24,9 @@ public class GeneralPage {
     }
     protected WebElement getTabLogout(){
         return Utilities.waitForVisible(tabLogout);
+    }
+    protected WebElement getTabBookTicket(){
+        return Utilities.waitForVisible(tabBookTicket);
     }
     protected WebElement getLblWelcomeMessage(){
         return Utilities.waitForVisible(lblWelcomeMessage);
@@ -56,6 +60,11 @@ public class GeneralPage {
     public HomePage logout(){
         getTabLogout().click();
         return new HomePage();
+    }
+
+    public BookTicketPage gotoTabBookTicketPage(){
+        getTabBookTicket().click();
+        return new BookTicketPage();
     }
 
     public FAQPage gotoFAQPage() {

@@ -3,8 +3,10 @@ package Common;
 import Constant.Constant;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.lang.model.element.Element;
 import java.security.SecureRandom;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -65,16 +67,6 @@ public class Utilities {
         return waitForClickable(locator, Constant.TIMEOUT);
     }
 
-//    public static By waitForVisible(By locator, Duration timeout){
-//        WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, timeout);
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-//        return locator;
-//    }
-//
-//    public static By waitForVisible(By locator){
-//        return waitForVisible(locator, Constant.TIMEOUT);
-//    }
-
     public static WebElement waitForVisible(By locator) {
         WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Constant.TIMEOUT);
 
@@ -87,6 +79,14 @@ public class Utilities {
         }
     }
 
+    public static void waitForOptionPresent(By selectLocator, String optionText, Duration timeout) {
+        WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, timeout);
+        wait.until(driver -> {
+	        Select select = new Select(driver.findElement(selectLocator));
+	        return select.getOptions().stream().anyMatch(o -> o.getText().trim().equals(optionText));
+	    });
+    }
+
     public static void switchToWindow(int index){
         ArrayList<String> tabs = new ArrayList<>(Constant.WEBDRIVER.getWindowHandles());
         Constant.WEBDRIVER.switchTo().window(tabs.get(index));
@@ -97,4 +97,9 @@ public class Utilities {
         ArrayList<String> tabs = new ArrayList<>(Constant.WEBDRIVER.getWindowHandles());
         Constant.WEBDRIVER.switchTo().window(tabs.get(tabs.size() - 1));
     }
+
+//    public static void waitForPageLoad(WebElement element){
+//        WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.stalenessOf(element));
+//    }
 }

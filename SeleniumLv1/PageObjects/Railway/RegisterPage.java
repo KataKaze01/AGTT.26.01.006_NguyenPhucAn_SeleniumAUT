@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class RegisterPage extends GeneralPage {
+
+    //Locators
     private final By _txtEmail = By.xpath("//input[@id='email']");
     private final By _txtPassword = By.xpath("//input[@id='password']");
     private final By _txtConfirmPassword = By.xpath("//input[@id='confirmPassword']");
@@ -18,7 +20,7 @@ public class RegisterPage extends GeneralPage {
     private final By _lblPìdErrorMsg = By.xpath("//input[@id='pid']/following-sibling::label[contains(@class,'validation-error')]");
     private final By lblRegistrationConfirmedMsg = By.xpath("//div[@id='content']/p");
 
-    //elements
+    //Elements
     public WebElement getTxtEmail(){
         return Utilities.waitForVisible(_txtEmail);
     }
@@ -62,6 +64,7 @@ public class RegisterPage extends GeneralPage {
     public String getPasswordErrorMsg(){return this.getLblPasswordErrorMsg().getText();}
     public String getPidErrorMsg(){return this.getLblPidErrorMsg().getText();}
 
+    //Methods
     public HomePage register(UserAccount userAccount){
         getTxtEmail().sendKeys(userAccount.getUsernameAccount());
         getTxtPassword().sendKeys(userAccount.getPasswordAccount());

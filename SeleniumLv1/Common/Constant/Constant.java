@@ -11,5 +11,6 @@ public class Constant {
     public static final String USERNAME = "katakazeno1@gmail.com";
     public static final String PASSWORD = "12345678";
     public static final String PID = "54234231";
-    public static final Duration TIMEOUT = Duration.ofSeconds(60);
+    public static final Duration TIMEOUT = Duration.ofSeconds(50);
+    public static final int WAIT = 10;
 }

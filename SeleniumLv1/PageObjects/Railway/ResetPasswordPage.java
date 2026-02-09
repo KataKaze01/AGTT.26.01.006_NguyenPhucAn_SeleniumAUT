@@ -20,7 +20,6 @@ public class ResetPasswordPage extends GeneralPage {
     private final By lblConfirmPasswordErrorMsg = By.xpath("//label[@class='validation-error']");
 
     //Elements
-
     public WebElement getBtnForgotPassword(){
         Utilities.waitForClickable(btnForgotPassword);
         return Constant.WEBDRIVER.findElement(btnForgotPassword);
