@@ -22,7 +22,7 @@ public class CreateAccountTest extends BaseTest {
         System.out.println("3. Enter information of the created account in Pre-condition");
         System.out.println("4. Click on \"Register\" button");
         String pid = Utilities.generateRandomString(8);
-        UserAccount userAccount = new UserAccount(Constant.USERNAME, Constant.PASSWORD, pid);
+        UserAccount userAccount = new UserAccount(Constant.USERNAME, Constant.PASSWORD, "", pid);
         registerPage.register(userAccount);
 
         System.out.println("Error message \"This email address is already in use.\" displays above the form.");
@@ -45,7 +45,7 @@ public class CreateAccountTest extends BaseTest {
         RegisterPage registerPage = homePage.gotoRegisterPage();
 
         System.out.println("3. Enter valid email address and leave other fields empty");
-        UserAccount userAccount = new UserAccount(Constant.USERNAME, "", "");
+        UserAccount userAccount = new UserAccount(Constant.USERNAME, "", "", "");
         registerPage.register(userAccount);
 
         System.out.println("Message \"There're errors in the form. Please correct the errors and try again.\" appears above the form.");
@@ -78,7 +78,7 @@ public class CreateAccountTest extends BaseTest {
         System.out.println("3. Enter valid information into all fields");
         System.out.println("4. Click on \"Register\" button");
         String randomEmail = Utilities.generateRandomEmail();
-        UserAccount userAccount = new UserAccount(randomEmail, Constant.USERNAME, Constant.PID);
+        UserAccount userAccount = new UserAccount(randomEmail, Constant.PASSWORD, "", Constant.PID);
         registerPage.register(userAccount);
 
         System.out.println("\"Thank you for registering your account\" is shown");
@@ -97,6 +97,7 @@ public class CreateAccountTest extends BaseTest {
         System.out.println("8. Click on the activate link");
         registerPage = mailPage.confirmMail(randomEmail);
 
+        System.out.println("Redirect to Railways page and message \"Registration Confirmed! You can now log in to the site\" is shown");
         String activationMsg = registerPage.getLblRegistrationConfirmedMsg().getText();
         String expectedActivationMsg = "Registration Confirmed! You can now log in to the site.";
         Assert.assertEquals(activationMsg, expectedActivationMsg);

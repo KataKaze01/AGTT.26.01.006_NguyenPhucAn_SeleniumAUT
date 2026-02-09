@@ -13,7 +13,7 @@
             System.out.println("TC01 - User can log into Railway with valid username and password");
             System.out.println("1. Navigate to QA Railway Website");
             HomePage homePage = new HomePage();
-            UserAccount userAccount = new UserAccount(Constant.USERNAME, Constant.PASSWORD, "");
+            UserAccount userAccount = new UserAccount(Constant.USERNAME, Constant.PASSWORD, "", "");
             homePage.open();
 
             System.out.println("2. Click on Login tab");
@@ -35,7 +35,7 @@
 
             System.out.println("1. Navigate to QA Railway Website");
             HomePage homePage = new HomePage();
-            UserAccount userAccount = new UserAccount("", Constant.PASSWORD, "");
+            UserAccount userAccount = new UserAccount("", Constant.PASSWORD, "", "");
             homePage.open();
 
             System.out.println("2. Click on Login tab");
@@ -66,7 +66,7 @@
             System.out.println("3. Enter valid Email and invalid Password");
             System.out.println("4. Click on Login button");
             String invalidPassword  = Utilities.generateRandomString(8);
-            UserAccount userAccount = new UserAccount(Constant.USERNAME, invalidPassword, "");
+            UserAccount userAccount = new UserAccount(Constant.USERNAME, invalidPassword, "", "");
             loginPage.login(userAccount);
 
             System.out.println("Error message \"There was a problem with your login and/or errors exist in your form.\" is displayed");
@@ -123,7 +123,7 @@
 
             System.out.println("3. Enter username and password of account hasn't been activated.");
             System.out.println("4. Click on \"Login\" button");
-            UserAccount userAccount = new UserAccount("accclone1223@spam4.me", "12345678", "");
+            UserAccount userAccount = new UserAccount("accclone1223@spam4.me", "12345678", "", "");
             loginPage.login(userAccount);
 
             System.out.println("User can't login and message \"Invalid username or password. Please try again.\" appears.");

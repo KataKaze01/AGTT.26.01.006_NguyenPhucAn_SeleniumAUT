@@ -14,7 +14,7 @@ public class LogoutTest extends BaseTest {
 
         System.out.println("2. Login with valid Email and Password");
         LoginPage loginPage = homePage.gotoLoginPage();
-        UserAccount userAccount = new UserAccount(Constant.USERNAME, Constant.PASSWORD, "");
+        UserAccount userAccount = new UserAccount(Constant.USERNAME, Constant.PASSWORD, "", "");
         loginPage.login(userAccount);
 
         System.out.println("Home page displays.");

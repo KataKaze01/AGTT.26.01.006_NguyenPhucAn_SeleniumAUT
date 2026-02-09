@@ -3,13 +3,21 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Railway.CreateAccountTest">
+      <class name="Railway.LoginTest">
         <methods>
           <include name="beforeMethod"/>
+          <include name="TC04"/>
+          <include name="TC03"/>
           <include name="afterMethod"/>
-          <include name="TC09"/>
         </methods>
-      </class> <!-- Railway.CreateAccountTest -->
+      </class> <!-- Railway.LoginTest -->
+      <class name="Railway.ResetPasswordTest">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="TC10"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- Railway.ResetPasswordTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

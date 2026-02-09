@@ -17,7 +17,6 @@ public class BaseTest {
     @AfterMethod
     public void afterMethod(){
         System.out.println("Post-condition");
-
         Constant.WEBDRIVER.quit();
     }
 }

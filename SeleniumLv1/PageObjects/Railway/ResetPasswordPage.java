@@ -16,7 +16,8 @@ public class ResetPasswordPage extends GeneralPage {
     private final By txtNewPassword = By.xpath("//input[@name='newPassword']");
     private final By txtConfirmPassword = By.xpath("//input[@name='confirmPassword']");
     private final By btnResetPassword = By.xpath("//input[@type='submit']");
-    private final By lblResetPasswordErrorMsg = By.xpath("//p[@class='message success']");
+    private final By lblResetPasswordErrorMsg = By.xpath("//div[@id='content']/p");
+    private final By lblConfirmPasswordErrorMsg = By.xpath("//label[@class='validation-error']");
 
     //Elements
 
@@ -55,6 +56,10 @@ public class ResetPasswordPage extends GeneralPage {
         return Utilities.waitForVisible(lblResetPasswordErrorMsg);
     }
 
+    public WebElement getLblConfirmPasswordErrorMsg(){
+        return Utilities.waitForVisible(lblConfirmPasswordErrorMsg);
+    }
+
     //Methods
     public HomePage resetPassword(UserAccount userAccount){
         getBtnForgotPassword().click();
@@ -63,6 +68,10 @@ public class ResetPasswordPage extends GeneralPage {
         getBtnSendInstructions().click();
 
         return new HomePage();
+    }
+
+    public String getResetPasswordErrorMsg(){
+        return this.getLblResetPasswordErrorMsg().getText();
     }
 
     public String getPasswordChangeForm(){
@@ -74,6 +83,16 @@ public class ResetPasswordPage extends GeneralPage {
         getTxtNewPassword().sendKeys(userAccount.getPasswordAccount());
         getTxtConfirmPassword().sendKeys(userAccount.getPasswordAccount());
         getBtnResetPassword().click();
+
+        return new HomePage();
+    }
+
+    public HomePage passwordChangeForm1(UserAccount userAccount){
+        Utilities.scrollToElement(getTxtNewPassword());
+        getTxtNewPassword().sendKeys(userAccount.getPasswordAccount());
+        getTxtConfirmPassword().sendKeys(userAccount.getResetPasswordAccount());
+        getBtnResetPassword().click();
+        Utilities.scrollToElement(getBtnResetPassword());
 
         return new HomePage();
     }
