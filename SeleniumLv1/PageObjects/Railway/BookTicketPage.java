@@ -28,7 +28,16 @@ public class BookTicketPage extends GeneralPage {
     private final By cellDepartDate = By.xpath("//tr[@class='OddRow']/td[4]");
     private final By cellAmount = By.xpath("//tr[@class='OddRow']/td[7]");
     private final By lblDepartStation = By.xpath("//table//th[text()='Depart Station']");
-
+    private final String btnCheckPriceTimeTable = "//table[@class='MyTable WideTable']//td[.='%s']/following-sibling::td[.='%s']/following-sibling::td//a[.='check price']";
+    private final String btnBookTicketTimeTable = "//table[@class='MyTable WideTable']//td[.='%s']/following-sibling::td[.='%s']/following-sibling::td//a[.='book ticket']";
+    private final By lblTicketPriceTitle = By.xpath("//div[@id='content']//h1");
+    private final By lblTableTicketSmall = By.xpath("//th[@colspan='7' and contains(text(),'Ticket price from')]");
+    private final By lblPriceHS = By.xpath("//tr[th[contains(text(),'Price')]]/td[1]");
+    private final By lblPriceSS = By.xpath("//tr[th[contains(text(),'Price')]]/td[2]");
+    private final By lblPriceSSC = By.xpath("//tr[th[contains(text(),'Price')]]/td[3]");
+    private final By lblPriceHB = By.xpath("//tr[th[contains(text(),'Price')]]/td[4]");
+    private final By lblPriceSB = By.xpath("//tr[th[contains(text(),'Price')]]/td[5]");
+    private final By lblPriceSBC = By.xpath("//tr[th[contains(text(),'Price')]]/td[6]");
 
     //Elements
     public WebElement getCbbDepartDate(){
@@ -37,7 +46,7 @@ public class BookTicketPage extends GeneralPage {
     }
 
     public WebElement getCbbDepartFrom(){
-
+        Utilities.waitForClickable(cbbDepartFrom);
         return Constant.WEBDRIVER.findElement(cbbDepartFrom);
     }
 
@@ -89,56 +98,134 @@ public class BookTicketPage extends GeneralPage {
         return Utilities.waitForVisible(lblDepartStation);
     }
 
-    //Methods
-    public void selectNextTwoDays(){
-        WebElement element = getCbbDepartDate();
-        String targetDateText = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("M/dd/yyyy"));
+    public WebElement getBtnCheckPriceTimeTable(String depart, String arrive){
+        By locator = By.xpath(String.format(btnCheckPriceTimeTable, depart, arrive));
+        Utilities.waitForClickable(locator);
+        return Constant.WEBDRIVER.findElement(locator);
+    }
 
-        System.out.println(targetDateText);
+    public WebElement getBtnBookTicketTimeTable(String depart, String arrive){
+        By locator = By.xpath(String.format(btnBookTicketTimeTable, depart, arrive));
+        Utilities.waitForClickable(locator);
+        return Constant.WEBDRIVER.findElement(locator);
+    }
+
+    public WebElement getLblTicketPriceTitle(){
+        return Utilities.waitForVisible(lblTicketPriceTitle);
+    }
+
+    public WebElement getLblTableTicketSmall() {
+        return Utilities.waitForVisible(lblTableTicketSmall);
+    }
+
+    public WebElement getLblPriceHS(){
+        return Utilities.waitForVisible(lblPriceHS);
+    }
+
+    public WebElement getLblPriceSS(){
+        return Utilities.waitForVisible(lblPriceSS);
+    }
+
+    public WebElement getLblPriceSSC(){
+        return Utilities.waitForVisible(lblPriceSSC);
+    }
+
+    public WebElement getLblPriceHB(){
+        return Utilities.waitForVisible(lblPriceHB);
+    }
+
+    public WebElement getLblPriceSB(){
+        return Utilities.waitForVisible(lblPriceSB);
+    }
+
+    public WebElement getLblPriceSBC(){
+        return Utilities.waitForVisible(lblPriceSBC);
+    }
+
+    //Methods
+    public void selectNextTwoDays(int daysToAdd){
+        WebElement element = getCbbDepartDate();
+        String targetDateText = LocalDate.now().plusDays(daysToAdd).format(DateTimeFormatter.ofPattern("M/d/yyyy"));
         Select select = new Select(element);
         select.selectByVisibleText(targetDateText);
     }
 
-    public void selectDepartFrom(){
-        WebElement departElement = getCbbDepartFrom();
-
-        Select selectDepart = new Select(departElement);
-        selectDepart.selectByVisibleText("Nha Trang");
+    public void selectDepartFrom(String stationName){
+        new Select(getCbbDepartFrom()).selectByVisibleText(stationName);
     }
 
-    public void selectArriveAt(){
+    public String getSelectedDepartFrom() {
+        Select select = new Select(getCbbDepartFrom());
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String getSelectedArriveAt() {
+        Select select = new Select(getCbbArriveAt());
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public void selectArriveAt(String stationName){
         WebElement arriveElement = getCbbArriveAt();
         WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.stalenessOf(arriveElement));
         arriveElement = getCbbArriveAt();
         Select selectArrive = new Select(arriveElement);
-        selectArrive.selectByVisibleText("Huế");
+        selectArrive.selectByVisibleText(stationName);
     }
 
-    public void selectSeatType(){
-        WebElement seatElement = getCbbSeatType();
-
-        Select selectSeat = new Select(seatElement);
-        selectSeat.selectByVisibleText("Soft bed with air conditioner");
+    public void selectSeatType(String seatType){
+        new Select(getCbbSeatType()).selectByVisibleText(seatType);
     }
 
-    public void selectTicketAmount(){
-        WebElement ticketElement = getCbbTicketAmount();
-
-        Select selectTicket = new Select(ticketElement);
-        selectTicket.selectByVisibleText("1");
+    public void selectTicketAmount(String amount){
+        new Select(getCbbTicketAmount()).selectByVisibleText(amount);
     }
 
-    public HomePage bookTicketForm(){
+    public HomePage bookTicketForm(int daysFromNow, String depart, String arrive, String seat, String amount){
         Utilities.scrollToElement(getCbbArriveAt());
-        selectNextTwoDays();
-        selectDepartFrom();
-//        Utilities.waitForOptionPresent(cbbArriveAt, getCellArriveStation().getText(), Constant.TIMEOUT);
-        selectArriveAt();
-        selectSeatType();
-        selectTicketAmount();
+        selectNextTwoDays(daysFromNow);
+        selectDepartFrom(depart);
+        selectArriveAt(arrive);
+        selectSeatType(seat);
+        selectTicketAmount(amount);
         getBtnBookTicket().click();
         Utilities.waitForClickable(lblDepartStation);
+        Utilities.scrollToElement(getLblDepartStation());
+        return new HomePage();
+    }
+
+    public void clickCheckPrice(String depart, String arrive){
+        WebElement btn = getBtnCheckPriceTimeTable(depart, arrive);
+        Utilities.scrollToElement(btn);
+        btn.click();
+    }
+
+    public HomePage trainTimetable(String depart, String arrive){
+        clickCheckPrice(depart, arrive);
+
+        return new HomePage();
+    }
+
+    private By getBtnBookTicketTimeTableLocator(String depart, String arrive) {
+        return By.xpath(String.format(btnBookTicketTimeTable, depart, arrive));
+    }
+
+    public HomePage clickBookTicket(String depart, String arrive){
+        By btnLocator = getBtnBookTicketTimeTableLocator(depart, arrive);
+
+        WebElement btn = getBtnBookTicketTimeTable(depart, arrive);
+        Utilities.scrollToElement(btn);
+        Utilities.waitForClickable(btnLocator);
+        btn.click();
+
+        return new HomePage();
+    }
+
+    public HomePage bookTicketTimeTable(int daysFromNow, String amount){
+        Utilities.scrollToElement(getCbbTicketAmount());
+        selectNextTwoDays(daysFromNow);
+        selectTicketAmount(amount);
+        getBtnBookTicket().click();
         Utilities.scrollToElement(getLblDepartStation());
         return new HomePage();
     }
