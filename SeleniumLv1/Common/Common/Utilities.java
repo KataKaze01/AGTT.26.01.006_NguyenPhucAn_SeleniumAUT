@@ -97,9 +97,4 @@ public class Utilities {
         ArrayList<String> tabs = new ArrayList<>(Constant.WEBDRIVER.getWindowHandles());
         Constant.WEBDRIVER.switchTo().window(tabs.get(tabs.size() - 1));
     }
-
-//    public static void waitForPageLoad(WebElement element){
-//        WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.stalenessOf(element));
-//    }
 }
