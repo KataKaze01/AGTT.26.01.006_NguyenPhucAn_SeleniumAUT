@@ -95,5 +95,4 @@ public class ResetPasswordPage extends GeneralPage {
 
         return new HomePage();
     }
-
 }

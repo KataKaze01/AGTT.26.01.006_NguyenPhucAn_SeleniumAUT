@@ -67,6 +67,4 @@ public class LoginPage extends GeneralPage{
 
         return new HomePage();
     }
-
-
 }

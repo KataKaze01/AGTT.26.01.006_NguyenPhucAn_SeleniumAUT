@@ -101,6 +101,5 @@ public class CreateAccountTest extends BaseTest {
         String activationMsg = registerPage.getLblRegistrationConfirmedMsg().getText();
         String expectedActivationMsg = "Registration Confirmed! You can now log in to the site.";
         Assert.assertEquals(activationMsg, expectedActivationMsg);
-
     }
 }
