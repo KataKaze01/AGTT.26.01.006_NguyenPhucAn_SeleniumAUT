@@ -49,7 +49,7 @@ public class Utilities {
 
     public static void scrollToElement(WebElement element){
         JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
-        js.executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
+        js.executeScript("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", element);
     }
 
 
@@ -92,4 +92,17 @@ public class Utilities {
         ArrayList<String> tabs = new ArrayList<>(Constant.WEBDRIVER.getWindowHandles());
         Constant.WEBDRIVER.switchTo().window(tabs.get(tabs.size() - 1));
     }
+
+    public static void click(By locator) {
+        WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(10));
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+
+        JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
+        js.executeScript("arguments[0].scrollIntoView({block:'center'});", element);
+
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+        element.click();
+    }
+
+
 }

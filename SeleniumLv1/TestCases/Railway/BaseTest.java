@@ -11,8 +11,7 @@ import org.testng.annotations.Parameters;
 import static com.google.common.base.Ascii.equalsIgnoreCase;
 
 public class BaseTest {
-    @Parameters("Browser")
-
+    @Parameters("browser")
     @BeforeMethod
     public void beforeMethod(@Optional("chrome") String browser){
         System.out.println("Pre-condition");
@@ -20,7 +19,7 @@ public class BaseTest {
 
         if ("chrome".equalsIgnoreCase(runBrowser)){
             Constant.WEBDRIVER = new ChromeDriver();
-        }else if ("fire fox".equalsIgnoreCase(runBrowser)){
+        }else if ("firefox".equalsIgnoreCase(runBrowser)){
             Constant.WEBDRIVER = new FirefoxDriver();
         }else {
             throw new RuntimeException("Unsupported browser: " + runBrowser);

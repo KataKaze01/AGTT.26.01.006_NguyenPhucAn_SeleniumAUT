@@ -45,7 +45,7 @@ public class LoginPage extends GeneralPage{
     public HomePage login(UserAccount userAccount){
         getTxtUsername().sendKeys(userAccount.getUsernameAccount());
         getTxtPassword().sendKeys(userAccount.getPasswordAccount());
-        getBtnLogin().click();
+        Utilities.click(_btnLogin);
 
         return new HomePage();
     }
