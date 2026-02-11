@@ -70,7 +70,6 @@ public class RegisterPage extends GeneralPage {
         getTxtPassword().sendKeys(userAccount.getPasswordAccount());
         getTxtConfirmPassword().sendKeys(userAccount.getPasswordAccount());
         getTxtPid().sendKeys((userAccount.getPidAccount()));
-
         getBtnRegister().click();
 
         return new HomePage();

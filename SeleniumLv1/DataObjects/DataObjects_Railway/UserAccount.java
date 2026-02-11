@@ -17,27 +17,13 @@ public class UserAccount {
         return usernameAccount;
     }
 
-    public void setUsernameAccount(String usernameAccount) {
-        this.usernameAccount = usernameAccount;
-    }
-
     public String getPasswordAccount() {
         return passwordAccount;
     }
 
-    public void setPasswordAccount(String passwordAccount) {
-        this.passwordAccount = passwordAccount;
-    }
-
     public String getResetPasswordAccount(){ return resetPasswordAccount; }
-
-    public void setResetPasswordAccount(String resetPasswordAccount){ this.resetPasswordAccount = resetPasswordAccount; }
 
     public String getPidAccount() {
         return pidAccount;
-    }
-
-    public void setPidAccount(String pidAccount) {
-        this.pidAccount = pidAccount;
     }
 }

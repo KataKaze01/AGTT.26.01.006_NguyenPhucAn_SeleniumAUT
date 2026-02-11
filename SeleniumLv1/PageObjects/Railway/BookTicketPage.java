@@ -202,7 +202,6 @@ public class BookTicketPage extends GeneralPage {
 
     public HomePage trainTimetable(String depart, String arrive){
         clickCheckPrice(depart, arrive);
-
         return new HomePage();
     }
 
@@ -212,12 +211,10 @@ public class BookTicketPage extends GeneralPage {
 
     public HomePage clickBookTicket(String depart, String arrive){
         By btnLocator = getBtnBookTicketTimeTableLocator(depart, arrive);
-
         WebElement btn = getBtnBookTicketTimeTable(depart, arrive);
         Utilities.scrollToElement(btn);
         Utilities.waitForClickable(btnLocator);
         btn.click();
-
         return new HomePage();
     }
 

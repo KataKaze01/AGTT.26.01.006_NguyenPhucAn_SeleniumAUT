@@ -5,8 +5,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import javax.lang.model.element.Element;
 import java.security.SecureRandom;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -31,11 +29,9 @@ public class Utilities {
     }
 
     public static String generateRandomEmail() {
-        // Generate random username (8-12 characters)
         int usernameLength = 8 + random.nextInt(5); // 8 to 12
         String username = generateRandomString(usernameLength);
 
-        // Common email domains
         String[] domains = {"sharklasers.com", "guerrillamail.info", "guerrillamail.biz", "guerrillamail.com", "guerrillamail.de", "guerrillamail.net", "guerrillamail.org", "guerrillamailblock.com"};
         String domain = domains[random.nextInt(domains.length)];
 
@@ -92,7 +88,6 @@ public class Utilities {
         Constant.WEBDRIVER.switchTo().window(tabs.get(index));
     }
 
-    // Switch to latest window
     public static void switchToLatestWindow(){
         ArrayList<String> tabs = new ArrayList<>(Constant.WEBDRIVER.getWindowHandles());
         Constant.WEBDRIVER.switchTo().window(tabs.get(tabs.size() - 1));

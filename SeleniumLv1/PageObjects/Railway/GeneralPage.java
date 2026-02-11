@@ -15,6 +15,8 @@ public class GeneralPage {
     private final By lblErrorMessage = By.xpath("//p[contains(@class,'message') and contains(@class,'error')]");
     private final By tabFAQ = By.xpath("//div[@id='menu']//a[@href='/Page/FAQ.cshtml']");
     private final By tabTimetable = By.xpath("//div[@id='menu']//a[@href='TrainTimeListPage.cshtml']");
+    private final By tabMyTicket = By.xpath("//div[@id='menu']//a[@href='/Page/ManageTicket.cshtml']");
+
 
     //Elements
     protected WebElement getTabLogin(){
@@ -39,6 +41,7 @@ public class GeneralPage {
         return Utilities.waitForVisible(tabFAQ);
     }
     protected WebElement getTabTimetable(){return Utilities.waitForVisible(tabTimetable);}
+    protected WebElement getTabMyTicket(){return Utilities.waitForVisible(tabMyTicket);}
 
     // Methods
     public String getWelcomeMessage(){
@@ -57,6 +60,11 @@ public class GeneralPage {
     public RegisterPage gotoRegisterPage(){
         this.getTabRegister().click();
         return new RegisterPage();
+    }
+
+    public CancelBookingPage gotoMyTicketPage(){
+        this.getTabMyTicket().click();
+        return new CancelBookingPage();
     }
 
     public HomePage logout(){
