@@ -4,9 +4,14 @@
 <suite name="Railway Automation Test Suite" verbose="1"
        parallel="methods" thread-count="1">
     <test name="Test">
-        <parameter name="browser" value="chrome" />
+        <parameter name="browser" value="firefox" />
         <classes>
+            <class name="Railway.BookTicketTest"></class>
+            <class name="Railway.CancelBookingTest"></class>
+            <class name="Railway.CreateAccountTest"></class>
             <class name="Railway.LoginTest"></class>
+            <class name="Railway.LogoutTest"></class>
+            <class name="Railway.ResetPasswordTest"></class>
         </classes>
     </test>
 </suite>

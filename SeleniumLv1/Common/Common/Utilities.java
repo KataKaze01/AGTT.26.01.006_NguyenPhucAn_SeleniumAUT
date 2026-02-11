@@ -29,7 +29,7 @@ public class Utilities {
     }
 
     public static String generateRandomEmail() {
-        int usernameLength = 8 + random.nextInt(5); // 8 to 12
+        int usernameLength = 5 + random.nextInt(5); // 8 to 12
         String username = generateRandomString(usernameLength);
 
         String[] domains = {"sharklasers.com", "guerrillamail.info", "guerrillamail.biz", "guerrillamail.com", "guerrillamail.de", "guerrillamail.net", "guerrillamail.org", "guerrillamailblock.com"};
@@ -75,14 +75,6 @@ public class Utilities {
         }
     }
 
-    public static void waitForOptionPresent(By selectLocator, String optionText, Duration timeout) {
-        WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, timeout);
-        wait.until(driver -> {
-	        Select select = new Select(driver.findElement(selectLocator));
-	        return select.getOptions().stream().anyMatch(o -> o.getText().trim().equals(optionText));
-	    });
-    }
-
     public static void switchToWindow(int index){
         ArrayList<String> tabs = new ArrayList<>(Constant.WEBDRIVER.getWindowHandles());
         Constant.WEBDRIVER.switchTo().window(tabs.get(index));
@@ -103,6 +95,4 @@ public class Utilities {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
         element.click();
     }
-
-
 }

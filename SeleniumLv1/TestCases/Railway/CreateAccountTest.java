@@ -78,6 +78,7 @@ public class CreateAccountTest extends BaseTest {
         System.out.println("3. Enter valid information into all fields");
         System.out.println("4. Click on \"Register\" button");
         String randomEmail = Utilities.generateRandomEmail();
+        System.out.println(randomEmail);
         UserAccount userAccount = new UserAccount(randomEmail, Constant.PASSWORD, "", Constant.PID);
         registerPage.register(userAccount);
 

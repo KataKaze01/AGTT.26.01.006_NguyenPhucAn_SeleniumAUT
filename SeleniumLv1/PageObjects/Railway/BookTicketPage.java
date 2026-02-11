@@ -2,6 +2,7 @@ package Railway;
 
 import Common.Utilities;
 import Constant.Constant;
+import DataObjects_Railway.BookTicket;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -143,11 +144,16 @@ public class BookTicketPage extends GeneralPage {
     }
 
     //Methods
-    public void selectNextTwoDays(int daysToAdd){
+    public String getSelectedDepartDate() {
+        WebElement departDate = getCbbDepartDate();
+        Select select = new Select(departDate);
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public void selectDepartDate(String date){
         WebElement element = getCbbDepartDate();
-        String targetDateText = LocalDate.now().plusDays(daysToAdd).format(DateTimeFormatter.ofPattern("M/d/yyyy"));
         Select select = new Select(element);
-        select.selectByVisibleText(targetDateText);
+        select.selectByVisibleText(date);
     }
 
     public void selectDepartFrom(String stationName){
@@ -181,13 +187,13 @@ public class BookTicketPage extends GeneralPage {
         new Select(getCbbTicketAmount()).selectByVisibleText(amount);
     }
 
-    public HomePage bookTicketForm(int daysFromNow, String depart, String arrive, String seat, String amount){
+    public HomePage bookTicketForm(BookTicket bookTicket){
         Utilities.scrollToElement(getCbbArriveAt());
-        selectNextTwoDays(daysFromNow);
-        selectDepartFrom(depart);
-        selectArriveAt(arrive);
-        selectSeatType(seat);
-        selectTicketAmount(amount);
+        selectDepartDate(bookTicket.getDepartDate());
+        selectDepartFrom(bookTicket.getDepartFrom());
+        selectArriveAt(bookTicket.getArriveAt());
+        selectSeatType(bookTicket.getSeatType());
+        selectTicketAmount(bookTicket.getTicketAmount());
         getBtnBookTicket().click();
         Utilities.waitForClickable(lblDepartStation);
         Utilities.scrollToElement(getLblDepartStation());
@@ -218,10 +224,10 @@ public class BookTicketPage extends GeneralPage {
         return new HomePage();
     }
 
-    public HomePage bookTicketTimeTable(int daysFromNow, String amount){
+    public HomePage bookTicketForm(String departDate, String amountTicket){
         Utilities.scrollToElement(getCbbTicketAmount());
-        selectNextTwoDays(daysFromNow);
-        selectTicketAmount(amount);
+        selectDepartDate(departDate);
+        selectTicketAmount(amountTicket);
         getBtnBookTicket().click();
         Utilities.scrollToElement(getLblDepartStation());
         return new HomePage();
