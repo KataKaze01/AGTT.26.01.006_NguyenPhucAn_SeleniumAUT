@@ -18,7 +18,7 @@ public class CancelBookingPage extends GeneralPage {
     }
 
     //Methods
-    private By getBtnCancelTbl(String depart, String arrive, String seat, String dateDepart) {
+    public By getBtnCancelTbl(String depart, String arrive, String seat, String dateDepart) {
         return By.xpath(String.format(btnCancel, depart, arrive, seat, dateDepart));
     }
 

@@ -41,32 +41,32 @@ public class BookTicketPage extends GeneralPage {
     private final By lblPriceSBC = By.xpath("//tr[th[contains(text(),'Price')]]/td[6]");
 
     //Elements
-    public WebElement getCbbDepartDate(){
+    private WebElement getCbbDepartDate(){
         Utilities.waitForClickable(cbbDepartDate);
         return Constant.WEBDRIVER.findElement(cbbDepartDate);
     }
 
-    public WebElement getCbbDepartFrom(){
+    private WebElement getCbbDepartFrom(){
         Utilities.waitForClickable(cbbDepartFrom);
         return Constant.WEBDRIVER.findElement(cbbDepartFrom);
     }
 
-    public WebElement getCbbArriveAt(){
+    private WebElement getCbbArriveAt(){
         Utilities.waitForClickable(cbbArriveAt);
         return Constant.WEBDRIVER.findElement(cbbArriveAt);
     }
 
-    public WebElement getCbbSeatType(){
+    private WebElement getCbbSeatType(){
         Utilities.waitForClickable(cbbSeatType);
         return Constant.WEBDRIVER.findElement(cbbSeatType);
     }
 
-    public WebElement getCbbTicketAmount(){
+    private WebElement getCbbTicketAmount(){
         Utilities.waitForClickable(cbbTicketAmount);
         return Constant.WEBDRIVER.findElement(cbbTicketAmount);
     }
 
-    public WebElement getBtnBookTicket(){
+    private WebElement getBtnBookTicket(){
         Utilities.waitForClickable(btnBookTicket);
         return Constant.WEBDRIVER.findElement(btnBookTicket);
     }
@@ -91,7 +91,7 @@ public class BookTicketPage extends GeneralPage {
         return Utilities.waitForVisible(cellDepartDate);
     }
 
-    public WebElement getCellAmount(){
+    public WebElement getCellAmountTicket(){
         return Utilities.waitForVisible(cellAmount);
     }
 
@@ -149,6 +149,34 @@ public class BookTicketPage extends GeneralPage {
         Select select = new Select(departDate);
         return select.getFirstSelectedOption().getText();
     }
+
+    public String getTicketBookedSuccessMsg(){return this.getLblTicketBookedSuccessMsg().getText();}
+
+    public String getDepartDateText(){return this.getCellDepartDate().getText();}
+
+    public String getDepartStationText(){return this.getCellDepartStation().getText();}
+
+    public String getArriveStationText(){return this.getCellArriveStation().getText();}
+
+    public String getSeatTypeText(){return this.getCellSeatType().getText();}
+
+    public String getAmountTicketText(){return this.getCellAmountTicket().getText();}
+
+    public String getTicketPriceTitle(){return this.getLblTicketPriceTitle().getText();}
+
+    public String getTableTicketSmall(){return this.getLblTableTicketSmall().getText();}
+
+    public String getPriceHS(){return this.getLblPriceHS().getText();}
+
+    public String getPriceSS(){return this.getLblPriceSS().getText();}
+
+    public String getPriceSSC(){return this.getLblPriceSSC().getText();}
+
+    public String getPriceHB(){return this.getLblPriceHB().getText();}
+
+    public String getPriceSB(){return this.getLblPriceSB().getText();}
+
+    public String getPriceSBC(){return this.getLblPriceSBC().getText();}
 
     public void selectDepartDate(String date){
         WebElement element = getCbbDepartDate();

@@ -33,6 +33,8 @@ public class LoginPage extends GeneralPage{
     }
 
     //Methods
+    public String getLoginErrorMsg(){return this.getLblLoginErrorMsg().getText();}
+
     public HomePage login(String username, String password){
         getTxtUsername().sendKeys(username);
         getTxtPassword().sendKeys(password);

@@ -44,7 +44,7 @@ public class ResetPasswordTest extends BaseTest {
         resetPasswordPage.passwordChangeForm(userAccount);
 
         System.out.println("Message \"The new password cannot be the same with the current password\" is shown");
-        String actualConfirmMsg = resetPasswordPage.getLblResetPasswordErrorMsg().getText();
+        String actualConfirmMsg = resetPasswordPage.getResetPasswordErrorMsg();
         String expectedConfirmMsg = "The new password cannot be the same with the current password";
         Assert.assertEquals(actualConfirmMsg, expectedConfirmMsg);
 
@@ -92,9 +92,8 @@ public class ResetPasswordTest extends BaseTest {
         Assert.assertEquals(actualMsg1, expectedMsg1);
 
         System.out.println("Error message \"The password confirmation did not match the new password.\" displays next to the confirm password field.");
-        String actualMsg2 = resetPasswordPage.getLblConfirmPasswordErrorMsg().getText();
+        String actualMsg2 = resetPasswordPage.getConfirmPasswordErrorMsg();
         String expectedMsg2 = "The password confirmation did not match the new password.";
         Assert.assertEquals(actualMsg2, expectedMsg2);
-
     }
 }

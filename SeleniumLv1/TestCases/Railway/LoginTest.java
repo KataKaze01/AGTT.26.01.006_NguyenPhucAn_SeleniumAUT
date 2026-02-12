@@ -70,7 +70,7 @@
             loginPage.login(userAccount);
 
             System.out.println("Error message \"There was a problem with your login and/or errors exist in your form.\" is displayed");
-            String actualMsg = loginPage.getLblLoginErrorMsg().getText();
+            String actualMsg = loginPage.getLoginErrorMsg();
             String expectedMsg = "There was a problem with your login and/or errors exist in your form. ";
 
             Assert.assertEquals(actualMsg, expectedMsg);
@@ -99,12 +99,13 @@
                 loginPage.getTxtUsername().sendKeys(Constant.USERNAME);
                 loginPage.getTxtPassword().clear();
                 loginPage.getTxtPassword().sendKeys(invalidPassword);
+                Utilities.scrollToElement(loginPage.getBtnLogin());
 
                 loginPage.getBtnLogin().click();
             }
 
             System.out.println("User can't login and message \"You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.\" appears.");
-            String actualMsg = loginPage.getLblLoginErrorMsg().getText();
+            String actualMsg = loginPage.getLoginErrorMsg();
             String expectedMsg = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
 
             Assert.assertEquals(actualMsg, expectedMsg, "Login attempt warning message is not displayed as expected");
@@ -127,7 +128,7 @@
             loginPage.login(userAccount);
 
             System.out.println("User can't login and message \"Invalid username or password. Please try again.\" appears.");
-            String actualMsg = loginPage.getLblLoginErrorMsg().getText();
+            String actualMsg = loginPage.getLoginErrorMsg();
             String expectedMsg = "Invalid username or password. Please try again.";
 
             Assert.assertEquals(actualMsg, expectedMsg);

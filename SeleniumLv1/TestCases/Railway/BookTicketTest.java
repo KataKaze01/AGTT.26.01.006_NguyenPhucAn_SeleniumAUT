@@ -38,22 +38,22 @@ public class BookTicketTest extends BaseTest {
         System.out.println("7. Select \"1\" for \"Ticket amount\"");
         System.out.println("8. Click on \"Book ticket\" button");
         String dateSelected = bookTicketPage.getSelectedDepartDate();
-        String expectedDate = LocalDate.parse(dateSelected, DateTimeFormatter.ofPattern("M/d/yyyy")).plusDays(daysToAdd).format(DateTimeFormatter.ofPattern("M/d/yyyy"));
+        String expectedDate = LocalDate.parse(dateSelected, DateTimeFormatter.ofPattern(Constant.FORMATDATETIME)).plusDays(daysToAdd).format(DateTimeFormatter.ofPattern(Constant.FORMATDATETIME));
         BookTicket bookTicket = new BookTicket(expectedDate, Station.NHATRANG.getValue(), Station.HUE.getValue(), SeatType.SOFTBEDWITHAIRCONDITIONER.getValue(), ticketAmount);
 
         bookTicketPage.bookTicketForm(bookTicket);
 
         System.out.println("Message \"Ticket booked successfully!\" displays.");
-        String actualMsg = bookTicketPage.getLblTicketBookedSuccessMsg().getText();
+        String actualMsg = bookTicketPage.getTicketBookedSuccessMsg();
         String expectedMsg = "Ticket booked successfully!";
         Assert.assertEquals(actualMsg, expectedMsg);
 
         System.out.println("Ticket information display correctly (Depart Date, Depart Station, Arrive Station, Seat Type, Amount)");
-        Assert.assertEquals(bookTicketPage.getCellDepartDate().getText(), expectedDate);
-        Assert.assertEquals(bookTicketPage.getCellDepartStation().getText(), Station.NHATRANG.getValue());
-        Assert.assertEquals(bookTicketPage.getCellArriveStation().getText(), Station.HUE.getValue());
-        Assert.assertEquals(bookTicketPage.getCellSeatType().getText(), SeatType.SOFTBEDWITHAIRCONDITIONER.getValue());
-        Assert.assertEquals(bookTicketPage.getCellAmount().getText(), ticketAmount);
+        Assert.assertEquals(bookTicketPage.getDepartDateText(), expectedDate);
+        Assert.assertEquals(bookTicketPage.getDepartStationText(), Station.NHATRANG.getValue());
+        Assert.assertEquals(bookTicketPage.getArriveStationText(), Station.HUE.getValue());
+        Assert.assertEquals(bookTicketPage.getSeatTypeText(), SeatType.SOFTBEDWITHAIRCONDITIONER.getValue());
+        Assert.assertEquals(bookTicketPage.getAmountTicketText(), ticketAmount);
     }
 
     @Test
@@ -81,9 +81,8 @@ public class BookTicketTest extends BaseTest {
         System.out.println("7. Select \"5\" for \"Ticket amount\"");
         System.out.println("8. Click on \"Book ticket\" button");
         String dateSelected = bookTicketPage.getSelectedDepartDate();
-        String expectedDate = LocalDate.parse(dateSelected, DateTimeFormatter.ofPattern("M/d/yyyy")).plusDays(dayToAdd).format(DateTimeFormatter.ofPattern("M/d/yyyy"));
+        String expectedDate = LocalDate.parse(dateSelected, DateTimeFormatter.ofPattern(Constant.FORMATDATETIME)).plusDays(dayToAdd).format(DateTimeFormatter.ofPattern(Constant.FORMATDATETIME));
         BookTicket bookTicket = new BookTicket(expectedDate, Station.NHATRANG.getValue(), Station.SAIGON.getValue(), SeatType.SOFTSEATWITHAIRCONDITIONER.getValue(), "5");
-
         bookTicketPage.bookTicketForm(bookTicket);
 
         System.out.println("Message \"Ticket booked successfully!\" displays.");
@@ -92,11 +91,11 @@ public class BookTicketTest extends BaseTest {
         Assert.assertEquals(actualMsg, expectedMsg);
 
         System.out.println("Ticket information display correctly (Depart Date, Depart Station, Arrive Station, Seat Type, Amount)");
-        Assert.assertEquals(bookTicketPage.getCellDepartStation().getText(), Station.NHATRANG.getValue());
-        Assert.assertEquals(bookTicketPage.getCellArriveStation().getText(), Station.SAIGON.getValue());
-        Assert.assertEquals(bookTicketPage.getCellSeatType().getText(), SeatType.SOFTSEATWITHAIRCONDITIONER.getValue());
-        Assert.assertEquals(bookTicketPage.getCellDepartDate().getText(), expectedDate);
-        Assert.assertEquals(bookTicketPage.getCellAmount().getText(), amountTicket);
+        Assert.assertEquals(bookTicketPage.getDepartDateText(), expectedDate);
+        Assert.assertEquals(bookTicketPage.getDepartStationText(), Station.NHATRANG.getValue());
+        Assert.assertEquals(bookTicketPage.getArriveStationText(), Station.SAIGON.getValue());
+        Assert.assertEquals(bookTicketPage.getSeatTypeText(), SeatType.SOFTSEATWITHAIRCONDITIONER.getValue());
+        Assert.assertEquals(bookTicketPage.getAmountTicketText(), amountTicket);
     }
 
     @Test
@@ -126,22 +125,22 @@ public class BookTicketTest extends BaseTest {
         bookTicketPage.trainTimetable("Đà Nẵng", "Sài Gòn");
 
         System.out.println("\"Ticket Price\" page is loaded.");
-        String actualMsg = bookTicketPage.getLblTicketPriceTitle().getText();
+        String actualMsg = bookTicketPage.getTicketPriceTitle();
         String expectedMsg = "Ticket Price";
         Assert.assertEquals(actualMsg, expectedMsg);
 
         System.out.println("Ticket table shows \"Ticket price from Đà Nẵng to Sài Gòn\".");
-        String actualSubHeader = bookTicketPage.getLblTableTicketSmall().getText();
+        String actualSubHeader = bookTicketPage.getTableTicketSmall();
         String expectedSubHeader = "Ticket price from Đà Nẵng to Sài Gòn";
         Assert.assertEquals(actualSubHeader, expectedSubHeader);
 
         System.out.println("Price for each seat displays correctly\n" + "HS = 310000, SS = 335000, SSC = 360000, HB = 410000, SB = 460000, SBC = 510000");
-        Assert.assertEquals(bookTicketPage.getLblPriceHS().getText(), hs);
-        Assert.assertEquals(bookTicketPage.getLblPriceSS().getText(), ss);
-        Assert.assertEquals(bookTicketPage.getLblPriceSSC().getText(), ssc);
-        Assert.assertEquals(bookTicketPage.getLblPriceHB().getText(), hb);
-        Assert.assertEquals(bookTicketPage.getLblPriceSB().getText(), sb);
-        Assert.assertEquals(bookTicketPage.getLblPriceSBC().getText(), sbc);
+        Assert.assertEquals(bookTicketPage.getPriceHS(), hs);
+        Assert.assertEquals(bookTicketPage.getPriceSS(), ss);
+        Assert.assertEquals(bookTicketPage.getPriceSSC(), ssc);
+        Assert.assertEquals(bookTicketPage.getPriceHB(), hb);
+        Assert.assertEquals(bookTicketPage.getPriceSB(), sb);
+        Assert.assertEquals(bookTicketPage.getPriceSBC(), sbc);
     }
 
     @Test
@@ -149,9 +148,6 @@ public class BookTicketTest extends BaseTest {
         System.out.println("User can book ticket from Timetable");
         System.out.println("Pre-condition: an actived account is existing");
         int dayToAdd = 1;
-        String departStation = "Quảng Ngãi";
-        String arriveStation = "Huế";
-        String seatType = "Hard seat";
         String amountTicket = "5";
 
         System.out.println("1. Navigate to QA Railway Website");
@@ -167,31 +163,30 @@ public class BookTicketTest extends BaseTest {
         BookTicketPage bookTicketPage = homePage.gotoTabTimeTable();
 
         System.out.println("4. Click on book ticket of route \"Quảng Ngãi\" to \"Huế\"");
-        bookTicketPage.clickBookTicket(departStation, arriveStation);
+        bookTicketPage.clickBookTicket(Station.QUANGNGAI.getValue(), Station.HUE.getValue());
 
         System.out.println("5. Select Depart date = tomorrow");
         System.out.println("6. Select Ticket amount = 5");
         System.out.println("7. Click on \"Book ticket\" button");
         String dateSelected = bookTicketPage.getSelectedDepartDate();
-        String expectedDate = LocalDate.parse(dateSelected, DateTimeFormatter.ofPattern("M/d/yyyy")).plusDays(dayToAdd).format(DateTimeFormatter.ofPattern("M/d/yyyy"));
+        String expectedDate = LocalDate.parse(dateSelected, DateTimeFormatter.ofPattern(Constant.FORMATDATETIME)).plusDays(dayToAdd).format(DateTimeFormatter.ofPattern(Constant.FORMATDATETIME));
         bookTicketPage.bookTicketForm(expectedDate, amountTicket);
 
         System.out.println("Book ticket form is shown with the corrected \"depart from\" and \"Arrive at\"");
-        String departFrom = "Quảng Ngãi";
-        String arriveAt = "Huế";
 
-        Assert.assertEquals(bookTicketPage.getSelectedDepartFrom(), departFrom);
-        Assert.assertEquals(bookTicketPage.getSelectedArriveAt(), arriveAt);
+        Assert.assertEquals(bookTicketPage.getSelectedDepartFrom(), Station.QUANGNGAI.getValue());
+        Assert.assertEquals(bookTicketPage.getSelectedArriveAt(), Station.HUE.getValue());
 
-        System.out.println("Message \"Ticket booked successfully!\" displays. Ticket information display correctly (Depart Date,  Depart Station,  Arrive Station,  Seat Type,  Amount)");
-        String actualMsg1 = bookTicketPage.getLblTicketBookedSuccessMsg().getText();
+        System.out.println("Message \"Ticket booked successfully!\" displays.");
+        String actualMsg1 = bookTicketPage.getTicketBookedSuccessMsg();
         String expectedMsg1 = "Ticket booked successfully!";
         Assert.assertEquals(actualMsg1, expectedMsg1);
 
-        Assert.assertEquals(bookTicketPage.getCellDepartStation().getText(), departStation);
-        Assert.assertEquals(bookTicketPage.getCellArriveStation().getText(), arriveStation);
-        Assert.assertEquals(bookTicketPage.getCellSeatType().getText(), seatType);
-        Assert.assertEquals(bookTicketPage.getCellDepartDate().getText(), expectedDate);
-        Assert.assertEquals(bookTicketPage.getCellAmount().getText(), amountTicket);
+        System.out.println("Ticket information display correctly (Depart Date,  Depart Station,  Arrive Station,  Seat Type,  Amount)");
+        Assert.assertEquals(bookTicketPage.getDepartDateText(), expectedDate);
+        Assert.assertEquals(bookTicketPage.getDepartStationText(), Station.QUANGNGAI.getValue());
+        Assert.assertEquals(bookTicketPage.getArriveStationText(), Station.HUE.getValue());
+        Assert.assertEquals(bookTicketPage.getSeatTypeText(), SeatType.SOFTBEDWITHAIRCONDITIONER.getValue());
+        Assert.assertEquals(bookTicketPage.getAmountTicketText(), amountTicket);
     }
 }

@@ -26,7 +26,7 @@ public class CreateAccountTest extends BaseTest {
         registerPage.register(userAccount);
 
         System.out.println("Error message \"This email address is already in use.\" displays above the form.");
-        String actualMsg = registerPage.getLblRegisterErrorMsg().getText();
+        String actualMsg = registerPage.getRegisterErrorMsg();
         String expectedMsg = "This email address is already in use.";
 
         Assert.assertEquals(actualMsg, expectedMsg);
@@ -49,7 +49,7 @@ public class CreateAccountTest extends BaseTest {
         registerPage.register(userAccount);
 
         System.out.println("Message \"There're errors in the form. Please correct the errors and try again.\" appears above the form.");
-        String actualMsg = registerPage.getLblRegisterErrorMsg().getText();
+        String actualMsg = registerPage.getRegisterErrorMsg();
         String expectedMsg = "There're errors in the form. Please correct the errors and try again.";
         Assert.assertEquals(actualMsg, expectedMsg);
 
@@ -83,7 +83,7 @@ public class CreateAccountTest extends BaseTest {
         registerPage.register(userAccount);
 
         System.out.println("\"Thank you for registering your account\" is shown");
-        String actualMsg = registerPage.getLblSuccessMsg().getText();
+        String actualMsg = registerPage.getRegisterSuccessMsg();
         String expectedMsg = "Thank you for registering your account";
         Assert.assertEquals(actualMsg, expectedMsg);
 
@@ -99,7 +99,7 @@ public class CreateAccountTest extends BaseTest {
         registerPage = mailPage.confirmMail(randomEmail);
 
         System.out.println("Redirect to Railways page and message \"Registration Confirmed! You can now log in to the site\" is shown");
-        String activationMsg = registerPage.getLblRegistrationConfirmedMsg().getText();
+        String activationMsg = registerPage.getRegistrationConfirmedMsg();
         String expectedActivationMsg = "Registration Confirmed! You can now log in to the site.";
         Assert.assertEquals(activationMsg, expectedActivationMsg);
     }

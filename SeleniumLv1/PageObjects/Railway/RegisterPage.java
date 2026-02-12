@@ -50,7 +50,7 @@ public class RegisterPage extends GeneralPage {
         return Utilities.waitForVisible(_lblPasswordErrorMsg);
     }
 
-    public WebElement getLblSuccessMsg(){
+    public WebElement getLblRegisterSuccessMsg(){
         return Utilities.waitForVisible(_lblRegisterSuccessMsg);
     }
 
@@ -61,10 +61,17 @@ public class RegisterPage extends GeneralPage {
         return Utilities.waitForVisible(lblRegistrationConfirmedMsg);
     }
 
+    //Methods
+    public String getRegisterSuccessMsg(){return this.getLblRegisterSuccessMsg().getText();}
+
+    public String getRegistrationConfirmedMsg(){return this.getLblRegistrationConfirmedMsg().getText();}
+
+    public String getRegisterErrorMsg(){return this.getLblRegisterErrorMsg().getText();}
+
     public String getPasswordErrorMsg(){return this.getLblPasswordErrorMsg().getText();}
+
     public String getPidErrorMsg(){return this.getLblPidErrorMsg().getText();}
 
-    //Methods
     public HomePage register(UserAccount userAccount){
         getTxtEmail().sendKeys(userAccount.getUsernameAccount());
         getTxtPassword().sendKeys(userAccount.getPasswordAccount());

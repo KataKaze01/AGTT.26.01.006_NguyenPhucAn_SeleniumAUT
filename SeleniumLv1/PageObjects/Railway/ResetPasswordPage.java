@@ -77,6 +77,9 @@ public class ResetPasswordPage extends GeneralPage {
         return this.getLblPasswordChangeForm().getText();
     }
 
+    public String getConfirmPasswordErrorMsg(){return this.getLblConfirmPasswordErrorMsg().getText();}
+
+
     public HomePage passwordChangeForm(UserAccount userAccount){
         Utilities.scrollToElement(getTxtNewPassword());
         getTxtNewPassword().sendKeys(userAccount.getPasswordAccount());
