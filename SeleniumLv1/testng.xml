@@ -6,12 +6,18 @@
     <test name="Test">
         <parameter name="browser" value="firefox" />
         <classes>
-            <class name="Railway.BookTicketTest"></class>
-            <class name="Railway.CancelBookingTest"></class>
-            <class name="Railway.CreateAccountTest"></class>
-            <class name="Railway.LoginTest"></class>
-            <class name="Railway.LogoutTest"></class>
-            <class name="Railway.ResetPasswordTest"></class>
+            <class name="Railway.BookTicketTest">
+            </class>
+            <class name="Railway.CancelBookingTest">
+            </class>
+            <class name="Railway.CreateAccountTest">
+            </class>
+            <class name="Railway.LoginTest">
+            </class>
+            <class name="Railway.LogoutTest">
+            </class>
+            <class name="Railway.ResetPasswordTest">
+            </class>
         </classes>
     </test>
 </suite>

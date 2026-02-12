@@ -66,7 +66,7 @@ public class BookTicketTest extends BaseTest {
         System.out.println("1. Navigate to QA Railway Website");
         HomePage homePage = new HomePage();
         homePage.open();
-        UserAccount userAccount = new UserAccount("kpaqlthe@sharklasers.com", Constant.PASSWORD, "", "");
+        UserAccount userAccount = new UserAccount("VpvRVze0@sharklasers.com", Constant.PASSWORD, "", "");
 
         System.out.println("2. Login with a valid account ");
         LoginPage loginPage = homePage.gotoLoginPage();
@@ -153,7 +153,7 @@ public class BookTicketTest extends BaseTest {
         System.out.println("1. Navigate to QA Railway Website");
         HomePage homePage = new HomePage();
         homePage.open();
-        UserAccount userAccount = new UserAccount("wnroumff@sharklasers.com", Constant.PASSWORD, "", "");
+        UserAccount userAccount = new UserAccount("8qrqQD@guerrillamail.net", Constant.PASSWORD, "", "");
 
         System.out.println("2. Login with a valid account");
         LoginPage loginPage = homePage.gotoLoginPage();
@@ -165,17 +165,16 @@ public class BookTicketTest extends BaseTest {
         System.out.println("4. Click on book ticket of route \"Quảng Ngãi\" to \"Huế\"");
         bookTicketPage.clickBookTicket(Station.QUANGNGAI.getValue(), Station.HUE.getValue());
 
+        System.out.println("Book ticket form is shown with the corrected \"depart from\" and \"Arrive at\"");
+        Assert.assertEquals(bookTicketPage.getSelectedDepartFrom(), Station.QUANGNGAI.getValue());
+        Assert.assertEquals(bookTicketPage.getSelectedArriveAt(), Station.HUE.getValue());
+
         System.out.println("5. Select Depart date = tomorrow");
         System.out.println("6. Select Ticket amount = 5");
         System.out.println("7. Click on \"Book ticket\" button");
         String dateSelected = bookTicketPage.getSelectedDepartDate();
         String expectedDate = LocalDate.parse(dateSelected, DateTimeFormatter.ofPattern(Constant.FORMATDATETIME)).plusDays(dayToAdd).format(DateTimeFormatter.ofPattern(Constant.FORMATDATETIME));
         bookTicketPage.bookTicketForm(expectedDate, amountTicket);
-
-        System.out.println("Book ticket form is shown with the corrected \"depart from\" and \"Arrive at\"");
-
-        Assert.assertEquals(bookTicketPage.getSelectedDepartFrom(), Station.QUANGNGAI.getValue());
-        Assert.assertEquals(bookTicketPage.getSelectedArriveAt(), Station.HUE.getValue());
 
         System.out.println("Message \"Ticket booked successfully!\" displays.");
         String actualMsg1 = bookTicketPage.getTicketBookedSuccessMsg();
@@ -186,7 +185,7 @@ public class BookTicketTest extends BaseTest {
         Assert.assertEquals(bookTicketPage.getDepartDateText(), expectedDate);
         Assert.assertEquals(bookTicketPage.getDepartStationText(), Station.QUANGNGAI.getValue());
         Assert.assertEquals(bookTicketPage.getArriveStationText(), Station.HUE.getValue());
-        Assert.assertEquals(bookTicketPage.getSeatTypeText(), SeatType.SOFTBEDWITHAIRCONDITIONER.getValue());
+        Assert.assertEquals(bookTicketPage.getSeatTypeText(), SeatType.HARDSEAT.getValue());
         Assert.assertEquals(bookTicketPage.getAmountTicketText(), amountTicket);
     }
 }
