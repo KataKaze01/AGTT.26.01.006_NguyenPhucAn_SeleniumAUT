@@ -175,7 +175,7 @@
                   </a> <!-- TC04 -->
                   <span class="method-name">TC04</span>
                   <div class="stack-trace">java.lang.AssertionError: Login attempt warning message is not displayed as expected expected [You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.] but found [Invalid username or password. Please try again.]
-	at Railway.LoginTest.TC04(LoginTest.java:110)
+	at Railway.LoginTest.TC04(LoginTest.java:111)
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
@@ -227,7 +227,7 @@
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite thread-count=&quot;1&quot; parallel=&quot;methods&quot; name=&quot;Railway Automation Test Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;1&quot; parallel=&quot;methods&quot; name=&quot;Test&quot;&gt;
-    &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
+    &lt;parameter name=&quot;browser&quot; value=&quot;firefox&quot;/&gt;
     &lt;classes&gt;
       &lt;class name=&quot;Railway.LoginTest&quot;/&gt;
     &lt;/classes&gt;
@@ -271,30 +271,30 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'TC05')
+data.setCell(0, 1, 'TC03')
 data.setCell(0, 2, 'Railway.LoginTest')
-data.setCell(0, 3, 12763);
+data.setCell(0, 3, 22083);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'TC04')
 data.setCell(1, 2, 'Railway.LoginTest')
-data.setCell(1, 3, 11881);
+data.setCell(1, 3, 12954);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'TC01')
+data.setCell(2, 1, 'TC05')
 data.setCell(2, 2, 'Railway.LoginTest')
-data.setCell(2, 3, 9227);
+data.setCell(2, 3, 11732);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'TC03')
+data.setCell(3, 1, 'TC01')
 data.setCell(3, 2, 'Railway.LoginTest')
-data.setCell(3, 3, 7818);
+data.setCell(3, 3, 6320);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'TC02')
 data.setCell(4, 2, 'Railway.LoginTest')
-data.setCell(4, 3, 5662);
+data.setCell(4, 3, 4145);
 window.suiteTableData['Railway_Automation_Test_Suite']= { tableData: data, tableDiv: 'times-div-Railway_Automation_Test_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 47 seconds</span>
+              <span class="suite-total-time">Total running time: 57 seconds</span>
               <div id="times-div-Railway_Automation_Test_Suite">
               </div> <!-- times-div-Railway_Automation_Test_Suite -->
             </div> <!-- times-div -->
@@ -322,68 +322,68 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">Railway.LoginTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(chrome)</span>
+                <span class="method-name">beforeMethod(firefox)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">TC01</span>
-                <span class="method-start">1442 ms</span>
+                <span class="method-start">3007 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">10672 ms</span>
+                <span class="method-start">9334 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(chrome)</span>
-                <span class="method-start">10960 ms</span>
+                <span class="method-name">beforeMethod(firefox)</span>
+                <span class="method-start">10176 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">TC02</span>
-                <span class="method-start">12000 ms</span>
+                <span class="method-start">12823 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">17663 ms</span>
+                <span class="method-start">16970 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(chrome)</span>
-                <span class="method-start">17792 ms</span>
+                <span class="method-name">beforeMethod(firefox)</span>
+                <span class="method-start">22776 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">TC03</span>
-                <span class="method-start">18675 ms</span>
+                <span class="method-start">25325 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">26495 ms</span>
+                <span class="method-start">47411 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(chrome)</span>
-                <span class="method-start">26641 ms</span>
+                <span class="method-name">beforeMethod(firefox)</span>
+                <span class="method-start">48217 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">TC04</span>
-                <span class="method-start">27579 ms</span>
+                <span class="method-start">50673 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">39461 ms</span>
+                <span class="method-start">63628 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(chrome)</span>
-                <span class="method-start">39603 ms</span>
+                <span class="method-name">beforeMethod(firefox)</span>
+                <span class="method-start">69443 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">TC05</span>
-                <span class="method-start">40424 ms</span>
+                <span class="method-start">72067 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">53188 ms</span>
+                <span class="method-start">83801 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

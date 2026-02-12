@@ -38,15 +38,6 @@ public class Utilities {
         return username + "@" + domain;
     }
 
-    public static void waitForElementVisibility(WebDriver driver, WebElement element, Duration time) {
-        WebDriverWait wait = new WebDriverWait(driver, time);
-        wait.until(ExpectedConditions.visibilityOf(element));
-    }
-
-    public static void waitForElementVisibility(WebDriver driver, WebElement element) {
-        waitForElementVisibility(driver, element, Duration.ofSeconds(10));
-    }
-
     public static void scrollToElement(WebElement element){
         JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
         js.executeScript("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", element);
@@ -73,11 +64,6 @@ public class Utilities {
 
             return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         }
-    }
-
-    public static void switchToWindow(int index){
-        ArrayList<String> tabs = new ArrayList<>(Constant.WEBDRIVER.getWindowHandles());
-        Constant.WEBDRIVER.switchTo().window(tabs.get(index));
     }
 
     public static void switchToLatestWindow(){
