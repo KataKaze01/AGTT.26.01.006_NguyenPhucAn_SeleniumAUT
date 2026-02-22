@@ -3,7 +3,6 @@ package Common;
 import Constant.Constant;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.security.SecureRandom;
 import java.time.Duration;
@@ -72,7 +71,7 @@ public class Utilities {
     }
 
     public static void click(By locator) {
-        WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Constant.TIMEOUT);
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 
         JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;

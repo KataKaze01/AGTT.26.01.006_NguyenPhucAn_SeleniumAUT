@@ -35,23 +35,4 @@ public class BookTicket {
         return ticketAmount;
     }
 
-    public void setDepartDate(String departDate) {
-        this.departDate = departDate;
-    }
-
-    public void setDepartFrom(String departFrom) {
-        this.departFrom = departFrom;
-    }
-
-    public void setArriveAt(String arriveAt) {
-        this.arriveAt = arriveAt;
-    }
-
-    public void setSeatType(String seatType) {
-        this.seatType = seatType;
-    }
-
-    public void setTicketAmount(String ticketAmount) {
-        this.ticketAmount = ticketAmount;
-    }
 }

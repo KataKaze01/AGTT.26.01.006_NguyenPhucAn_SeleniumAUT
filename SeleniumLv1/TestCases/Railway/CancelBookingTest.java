@@ -42,7 +42,7 @@ public class CancelBookingTest extends BaseTest {
         CancelBookingPage cancelBookingPage = homePage.gotoMyTicketPage();
 
         System.out.println("5. Click on \"Cancel\" button of ticket which user want to cancel.");
-        cancelBookingPage.clickCancel(Station.SAIGON.getValue(), Station.PHANTHIET.getValue(), SeatType.HARDSEAT.getValue(), "2/13/2026");
+        cancelBookingPage.clickCancel(Station.NHATRANG.getValue(), Station.HUE.getValue(), SeatType.SOFTBEDWITHAIRCONDITIONER.getValue(), "2/21/2026");
 
         System.out.println("6. Click on \"OK\" button on Confirmation message \"Are you sure?\"");
         WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(10));
@@ -52,5 +52,6 @@ public class CancelBookingTest extends BaseTest {
         alert.accept();
 
         System.out.println("The canceled ticket is disappeared.");
+
     }
 }

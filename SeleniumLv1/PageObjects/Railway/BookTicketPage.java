@@ -10,8 +10,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class BookTicketPage extends GeneralPage {
 
@@ -29,8 +27,8 @@ public class BookTicketPage extends GeneralPage {
     private final By cellDepartDate = By.xpath("//tr[@class='OddRow']/td[4]");
     private final By cellAmount = By.xpath("//tr[@class='OddRow']/td[7]");
     private final By lblDepartStation = By.xpath("//table//th[text()='Depart Station']");
-    private final String btnCheckPriceTimeTable = "//table[@class='MyTable WideTable']//td[.='%s']/following-sibling::td[.='%s']/following-sibling::td//a[.='check price']";
-    private final String btnBookTicketTimeTable = "//table[@class='MyTable WideTable']//td[.='%s']/following-sibling::td[.='%s']/following-sibling::td//a[.='book ticket']";
+    private String btnCheckPriceTimeTable = "//table[@class='MyTable WideTable']//td[.='%s']/following-sibling::td[.='%s']/following-sibling::td//a[.='check price']";
+    private String btnBookTicketTimeTable = "//table[@class='MyTable WideTable']//td[.='%s']/following-sibling::td[.='%s']/following-sibling::td//a[.='book ticket']";
     private final By lblTicketPriceTitle = By.xpath("//div[@id='content']//h1");
     private final By lblTableTicketSmall = By.xpath("//th[@colspan='7' and contains(text(),'Ticket price from')]");
     private final By lblPriceHS = By.xpath("//tr[th[contains(text(),'Price')]]/td[1]");

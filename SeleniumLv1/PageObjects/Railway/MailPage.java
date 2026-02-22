@@ -31,18 +31,6 @@ public class MailPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(btnSet);
     }
 
-    public WebElement getConfirmEmail(){
-        return Utilities.waitForVisible(confirmEmail);
-    }
-
-    public WebElement getConfirmLinkAccount(){
-        return Constant.WEBDRIVER.findElement(confirmLinkAccount);
-    }
-
-    public WebElement getConfirmLinkResetPassword(){
-        return Utilities.waitForVisible(confirmLinkResetPassword);
-    }
-
     //Methods
     public MailPage open(){
         Constant.WEBDRIVER.navigate().to(Constant.GUERILLAMAIL_URL);

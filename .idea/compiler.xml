@@ -7,7 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SeleniumLv1" />
+        <module name="AutomationExercise" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AGTT.26.01.006_NguyenPhucAn_AutomaionExercise" target="1.8" />
+      <module name="SeleniumLv1 (1) (AutomationExercise)" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
