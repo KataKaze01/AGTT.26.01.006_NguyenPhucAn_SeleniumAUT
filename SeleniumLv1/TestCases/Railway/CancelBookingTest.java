@@ -6,6 +6,7 @@ import DataObjects_Railway.UserAccount;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -52,6 +53,14 @@ public class CancelBookingTest extends BaseTest {
         alert.accept();
 
         System.out.println("The canceled ticket is disappeared.");
-
+        String actualTicket = cancelBookingPage.getTicketTableItemXpath(
+                Station.NHATRANG.getValue(),
+                Station.HUE.getValue(),
+                SeatType.SOFTBEDWITHAIRCONDITIONER.getValue(),
+                expectedDate,
+                "2/21/2026"
+        );
+        String expectedTicket = "Delete";
+        Assert.assertEquals(actualTicket, expectedTicket);
     }
 }
